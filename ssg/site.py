@@ -2,19 +2,11 @@ from pathlib import Path
 
 class Site:
     def __init__(self, source, dest):
-        self._source = Path(source)
-        self._dest = Path(dest)
-
-    @property
-    def source(self):
-        return self._source
-
-    @property
-    def dest(self):
-        return self._dest
+        self.source = Path(source)
+        self.dest = Path(dest)
 
     def create_dir(self, path: Path):
-        directory = self.dest.absolute() / path.relative_to(self.source)
+        directory = self.dest / path.relative_to(self.source)
         directory.mkdir(parents=True, exist_ok=True)
 
     def build(self):
