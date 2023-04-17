@@ -3,9 +3,7 @@ from pathlib import Path
 
 
 class Parser:
-
-    def __init__(self, lst: List[str]):
-        self.extensions = lst
+    extensions: List[str]
 
     def valid_extension(self, extension):
         return extension in self.extensions
